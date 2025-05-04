@@ -2,13 +2,13 @@
 
 function createRegistrationMessage(data) {
 
-  const {name, className, competitions} = data
+  const {name, std, competitions} = data
 
   return `Hello ${name}! 👋
    
    We are happy to inform you that your registration for *Talent Chase* has been received. You're participating in the following competition(s): *${competitions}*.
    
-   📚 Class: ${className}
+   📚 Class: ${std}
    
    📅 Stay tuned for event updates via WhatsApp.
    
