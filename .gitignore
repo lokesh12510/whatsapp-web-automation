@@ -1,0 +1,4 @@
+.env
+user_data
+creds.json
+node_modules
