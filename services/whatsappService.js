@@ -5,32 +5,28 @@ const { remainderForRegistrationMessage } = require("../messages/greetings");
 exports.triggerMessages = async () => {
 	const students = await sheetService.fetchPreviousRemainderData();
 
-	console.log(students);
+	const filteredStudents = students.filter(
+		(student) =>
+			student.isRegisteredIn2025 === "No" &&
+			student.notified !== "success" &&
+			student.notified !== "failed"
+	);
 
-	const data = [
-		{
-			name: "Kishor",
-			village: "Thambatty",
-			phoneNo: "9786766751",
-			isRegisteredIn2025: "No",
-		},
-		{
-			name: "Shri",
-			village: "Thambatty",
-			phoneNo: "8870275991",
-			isRegisteredIn2025: "No",
-		},
-		{
-			name: "Harshath",
-			village: "Thambatty",
-			phoneNo: "9943622690",
-			isRegisteredIn2025: "No",
-		},
-	];
+	const data = filteredStudents.slice(0, 15); // Limit to 15 messages at a time
+
+	console.log(data);
+
+	if (data.length === 0) {
+		console.log("No students to notify.");
+		return { message: "No students to notify." };
+	}
 
 	await puppeteerService.openWhatsappWebAndSendMsg(
 		data,
-		remainderForRegistrationMessage
+		remainderForRegistrationMessage,
+		async (phoneNo, status) => {
+			await sheetService.updateNotifiedNumber(phoneNo, status);
+		}
 	);
 
 	return { message: "All messages sent successfully!" };

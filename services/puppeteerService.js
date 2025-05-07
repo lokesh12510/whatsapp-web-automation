@@ -5,7 +5,11 @@ async function delay(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-exports.openWhatsappWebAndSendMsg = async (data, renderMessage) => {
+exports.openWhatsappWebAndSendMsg = async (
+	data,
+	renderMessage,
+	updateAsyncCallback
+) => {
 	const browser = await puppeteer.launch({
 		headless: false,
 		userDataDir: "../user_data", // keep WhatsApp logged in
@@ -77,9 +81,12 @@ exports.openWhatsappWebAndSendMsg = async (data, renderMessage) => {
 
 			console.log(`✅ Message sent to ${name} (${phone})`);
 
-			await delay(20000); // Wait before sending next message
+			await updateAsyncCallback(phoneNo, "success"); // Update the sheet with "Success" in the notified column
+
+			await delay(10000); // Wait before sending next message
 		} catch (error) {
 			console.error(`❌ Failed to send to ${name} (${phone}):`, error.message);
+			await updateAsyncCallback(phoneNo, "failed"); // Update the sheet with "Failed" in the notified column
 		}
 	}
 

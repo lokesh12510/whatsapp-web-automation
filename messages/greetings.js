@@ -25,7 +25,8 @@ Hope you're doing well. Here's a friendly reminder from the *Talent Chase* team!
 🎯 *Talent Chase 2025 - Season 4* is officially open for registration!  
 Organized by *Thambatty Vivekanandar Illaignar Narpani Mandram*, this is your chance to showcase your talent! 🏆
 
-📅 All competitions will be held *online*, and *winners will be rewarded*!  
+📌 *Registration is open only for students from LKG to VIII STD.*  
+🗓️ *Last date to register: 10th May 2025*
 Once registered, you'll be added to a WhatsApp group for all further updates.
 
 📝 Fill out the registration form here:  
