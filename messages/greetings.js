@@ -42,8 +42,20 @@ Warm regards,
 Talent Chase Team ✨`;
 }
 
+function createRemainderMessage(data) {
+  const { std, students } = data;
+
+  const studentList = students
+				.map((student) => `${student.name} - ${student.village} - ${student.phoneNo}`)
+				.join("\n");
+
+  return `Hello, ${std} group! Here are the students who have not registered yet:\n${studentList}`
+  
+};
+
 module.exports = {
   createRegistrationMessage,
-  remainderForRegistrationMessage
+  remainderForRegistrationMessage,
+  createRemainderMessage,
 };
    

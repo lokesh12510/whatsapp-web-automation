@@ -81,7 +81,7 @@ exports.openWhatsappWebAndSendMsg = async (
 
 			console.log(`✅ Message sent to ${name} (${phone})`);
 
-			await updateAsyncCallback(phoneNo, "success"); // Update the sheet with "Success" in the notified column
+			updateAsyncCallback && (await updateAsyncCallback(phoneNo, "success")); // Update the sheet with "Success" in the notified column
 
 			await delay(10000); // Wait before sending next message
 		} catch (error) {

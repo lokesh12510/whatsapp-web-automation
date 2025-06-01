@@ -22,7 +22,7 @@ const fetchPreviousRemainderData = async () => {
 	const sheets = await getSheetsInstance();
 
 	const SHEET_ID = process.env.SHEET_ID;
-	const SHEET_RANGE = "2024!A2:E"; // Adjust as needed
+	const SHEET_RANGE = "2024!A2:F"; // Adjust as needed
 
 	console.log(SHEET_ID, SHEET_RANGE, "SHEET INFO");
 
@@ -38,6 +38,7 @@ const fetchPreviousRemainderData = async () => {
 		phoneNo: row[2] || "",
 		isRegisteredIn2025: row[3] || "",
 		notified: row[4] || "",
+		std: row[5] || "",
 	}));
 };
 

@@ -7,4 +7,6 @@ router.get(
 	sheetController.getPreviousYearRemainder
 );
 
+router.get("/get-remainder-group", sheetController.getRemainderGroup);
+
 module.exports = router;
